@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const slider = document.querySelector(".appointment__slider");
     const slides = document.querySelectorAll(".appointment__container");
     const prevSlideBtn = document.getElementById("prevSlide");
     const nextSlideBtn = document.getElementById("nextSlide");

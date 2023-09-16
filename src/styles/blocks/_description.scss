@@ -2,11 +2,15 @@
 @import '../mixins';
 
 .description {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 213px;
+  @include position-centered;
   background-color: $color-4;
+
+  .description__content {
+    width: $block-width;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
 
   .description__text-container {
     display: flex;
@@ -14,6 +18,7 @@
     width: 367px;
     gap: 14px;
     margin-bottom: 16px;
+    margin-right: 213px;
 
     .description__title {
       color: $color-5;
@@ -32,5 +37,7 @@
   .description__image {
     width: 950px;
     height: 532px;
+    overflow: hidden;
+    object-fit: cover;
   }
 }

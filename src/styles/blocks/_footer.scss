@@ -1,0 +1,51 @@
+@import '../mixins';
+@import '../variables';
+
+.footer {
+  @include position-centered;
+  background-color: $color-9;
+
+  .footer__container {
+    width: $block-width;
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+
+    .footer__navigation {
+
+      .footer__nav-list {
+        display: flex;
+        gap: 30px;
+
+        .footer__nav-link {
+          text-decoration: none;
+          color: $color-2;
+          @include text-common-styles;
+          transition: .1s linear;
+
+          &:hover {
+            opacity: $opacity;
+          }
+        }
+      }
+    }
+
+    .footer__socials {
+      display: flex;
+      gap: 15px;
+
+      .footer__social-link {
+        width: $social-icon-size;
+        height: $social-icon-size;
+
+        .footer__social-image {
+          transition: .1s linear;
+
+          &:hover {
+            opacity: $opacity;
+          }
+        }
+      }
+    }
+  }
+}

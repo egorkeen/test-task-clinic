@@ -5,7 +5,7 @@
   @include position-centered;
   position: relative;
   width: $block-width;
-  margin: 100px auto 0;
+  margin: 100px auto 100px;
   flex-direction: column;
   overflow: hidden;
   
@@ -137,7 +137,6 @@
 
   .appointment__slider-buttons {
     margin-top: 34px;
-    margin-bottom: 94px;
     display: flex;
     align-items: center;
     gap: 36px;
