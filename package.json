@@ -4,11 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check": "prettier --check './**/*.{html,css,js}'",
+    "format": "prettier --write './**/*.{html,css,js}'",
+    "lint": "stylelint '**/*.css'",
+    "lintfix": "stylelint '**/*.css' --fix",
+    "checkAll": "npm run check && npm run lint",
+    "fixAll": "npm run format && npm run lintfix",
+    "start": "parcel src/index.html --open --port 3000",
+    "build": "parcel build src/index.html"
   },
   "author": "egorkeen",
   "license": "ISC",
   "devDependencies": {
+    "node-sass": "^9.0.0",
     "parcel-bundler": "^1.12.5",
     "prettier": "^3.0.3",
     "stylelint": "^15.10.3"

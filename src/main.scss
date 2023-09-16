@@ -1,0 +1,11 @@
+@import './styles/vendor/fonts/PTSansCaption/ptsanscaption.css';
+@import './styles/vendor/reset';
+
+body {
+  font-family: 'PT Sans Caption';
+}
+
+@import './styles/blocks/header';
+@import './styles/blocks/navigation';
+@import './styles/blocks/description';
+@import './styles/blocks/appointment';

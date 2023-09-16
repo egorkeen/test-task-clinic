@@ -1,0 +1,36 @@
+@import './variables';
+// общие стили
+// позиционирование по центру
+@mixin position-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text-common-styles {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  font-style: normal;
+}
+
+@mixin button-common-styles {
+  padding: 0;
+  border-radius: 50px;
+  width: $button-width;
+  height: $button-height;
+  border: none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: .5px;
+}
+
+// стили для header
+@mixin header-location-text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+}

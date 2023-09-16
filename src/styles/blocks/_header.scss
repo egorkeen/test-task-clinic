@@ -1,0 +1,76 @@
+@import '../variables';
+@import '../mixins';
+
+.header {
+  padding: 12px 0 0;
+  @include position-centered;
+
+  .header__container {
+    width: $block-width;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__location {
+    display: flex;
+    align-items: flex-start;
+    gap: 3px;
+
+    .header__logo {
+      width: $logo-width;
+      height: $logo-height;
+      margin-top: 5px;
+      margin-right: 17px;
+    }
+
+    .header__location-icon {
+      width: $location-icon-size;
+      height: $location-icon-size;
+    }
+
+    .header__location-link {
+      color: #364844;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      @include header-location-text;
+      transition: .1s linear;
+      &:hover {
+        opacity: $opacity;
+      }
+
+      .header__location-span {
+        color: #868686;
+        line-height: 15px;
+      }
+    }
+  }
+
+  .header__contacts {
+    display: flex;
+    align-items: center;
+
+    .header__whatsapp-icon {
+      width: $whatsapp-icon-size;
+      height: $whatsapp-icon-size;
+      margin-right: 9px;
+    }
+
+    .header__number {
+      margin-right: 34px;
+    }
+
+    .header__contact-button {
+      @include button-common-styles;
+      background-color: $color-1;
+      color: $color-2;
+      margin-right: 4px;
+      transition: .1s linear;
+      &:hover {
+        cursor: pointer;
+        opacity: $opacity;
+      }
+    }
+  }
+}

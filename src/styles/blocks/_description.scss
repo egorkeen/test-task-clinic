@@ -1,0 +1,36 @@
+@import '../variables';
+@import '../mixins';
+
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 213px;
+  background-color: $color-4;
+
+  .description__text-container {
+    display: flex;
+    flex-direction: column;
+    width: 367px;
+    gap: 14px;
+    margin-bottom: 16px;
+
+    .description__title {
+      color: $color-5;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .description__paragraph {
+      color: $color-5;
+      @include text-common-styles;
+    }
+  }
+
+  .description__image {
+    width: 950px;
+    height: 532px;
+  }
+}

@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'PT Sans Caption';
+    src: local('PT Sans Caption'), local('PTSans-Caption'), url('ptsanscaption.woff2') format('woff2'), url('ptsanscaption.woff') format('woff'), url('ptsanscaption.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PT Sans Caption';
+    src: local('PT Sans Caption Bold'), local('PTSans-CaptionBold'), url('ptsanscaptionbold.woff2') format('woff2'), url('ptsanscaptionbold.woff') format('woff'), url('ptsanscaptionbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}

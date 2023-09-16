@@ -1,0 +1,26 @@
+@import '../variables';
+@import '../mixins';
+
+.navigation {
+  background-color: $color-3;
+  @include position-centered;
+  margin-top: 12px;
+
+  .navigation__list {
+    width: $block-width;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .navigation__link {
+      @include text-common-styles;
+      text-decoration: none;
+      color: $color-2;
+      transition: .1s linear;
+      &:hover {
+        opacity: $opacity;
+      }
+    }
+  }
+}
