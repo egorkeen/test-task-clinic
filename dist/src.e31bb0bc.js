@@ -118,7 +118,40 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"index.js":[function(require,module,exports) {
-console.log('keka aaadfadf');
+document.addEventListener("DOMContentLoaded", function () {
+  var slider = document.querySelector(".appointment__slider");
+  var slides = document.querySelectorAll(".appointment__container");
+  var prevSlideBtn = document.getElementById("prevSlide");
+  var nextSlideBtn = document.getElementById("nextSlide");
+  var currentPage = document.getElementById("currentPage");
+  var totalSlides = slides.length;
+  var currentSlideIndex = 0;
+  function updateSlide() {
+    slides.forEach(function (slide, index) {
+      if (index === currentSlideIndex) {
+        slide.style.display = "block";
+      } else {
+        slide.style.display = "none";
+      }
+    });
+    currentPage.textContent = currentSlideIndex + 1;
+  }
+  prevSlideBtn.addEventListener("click", function () {
+    if (currentSlideIndex > 0) {
+      currentSlideIndex--;
+      updateSlide();
+    }
+  });
+  nextSlideBtn.addEventListener("click", function () {
+    if (currentSlideIndex < totalSlides - 1) {
+      currentSlideIndex++;
+      updateSlide();
+    }
+  });
+
+  // Начнем с первого слайда
+  updateSlide();
+});
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -144,7 +177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50627" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54605" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
