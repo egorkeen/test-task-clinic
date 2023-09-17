@@ -10,9 +10,9 @@ let currentSlideIndex = 0;
 function updateSlide() {
   slides.forEach((slide, index) => {
     if (index === currentSlideIndex) {
-      slide.style.opacity = 1;
+      slide.style.display = "block";
     } else {
-      slide.style.opacity = 0;
+      slide.style.display = "none";
     }
   });
 
@@ -39,3 +39,4 @@ nextSlideBtn.addEventListener("click", () => {
 });
 
 updateSlide();
+
