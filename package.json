@@ -6,13 +6,14 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html --open --port 3000",
-    "build": "parcel build /src/index.html --public-url ./dist/",
+    "build": "parcel build src/index.html -d build --public-url .",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d build"
   },
   "author": "egorkeen",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-css": "^2.9.3",
     "@parcel/transformer-sass": "^2.9.3",
     "gh-pages": "^6.0.0",
     "node-sass": "^9.0.0",
