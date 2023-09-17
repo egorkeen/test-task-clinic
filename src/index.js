@@ -1,12 +1,3 @@
-const slides = document.querySelectorAll(".appointment__container");
-const prevSlideBtn = document.getElementById("prevSlide");
-const nextSlideBtn = document.getElementById("nextSlide");
-const currentPage = document.getElementById("currentPage");
-const toggleButton = document.getElementById('header__toggle');
-const navigation = document.querySelector('.navigation');
-const totalSlides = slides.length;
-let currentSlideIndex = 0;
-
 function updateSlide() {
   slides.forEach((slide, index) => {
     if (index === currentSlideIndex) {
@@ -39,4 +30,3 @@ nextSlideBtn.addEventListener("click", () => {
 });
 
 updateSlide();
-
