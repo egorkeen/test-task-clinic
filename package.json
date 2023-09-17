@@ -1,5 +1,6 @@
 {
   "name": "test-task-clinic",
+  "homepage": "egorkeen.github.io/test-task-clinic",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,11 +12,14 @@
     "checkAll": "npm run check && npm run lint",
     "fixAll": "npm run format && npm run lintfix",
     "start": "parcel src/index.html --open --port 3000",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "egorkeen",
   "license": "ISC",
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "node-sass": "^9.0.0",
     "parcel-bundler": "^1.12.5",
     "prettier": "^3.0.3",
