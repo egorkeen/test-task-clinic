@@ -118,44 +118,41 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"index.js":[function(require,module,exports) {
-document.addEventListener("DOMContentLoaded", function () {
-  var slides = document.querySelectorAll(".appointment__container");
-  var prevSlideBtn = document.getElementById("prevSlide");
-  var nextSlideBtn = document.getElementById("nextSlide");
-  var currentPage = document.getElementById("currentPage");
-  var toggleButton = document.getElementById('header__toggle');
-  var navigation = document.querySelector('.navigation');
-  var totalSlides = slides.length;
-  var currentSlideIndex = 0;
-  function updateSlide() {
-    slides.forEach(function (slide, index) {
-      if (index === currentSlideIndex) {
-        slide.style.display = "flex";
-        slide.style.flexDirection = "column-reverse";
-      } else {
-        slide.style.display = "none";
-      }
-    });
-    currentPage.textContent = currentSlideIndex + 1;
-  }
-  toggleButton.addEventListener('click', function () {
-    // Переключаем класс navigation_visible
-    navigation.classList.toggle('navigation_visible');
-  });
-  prevSlideBtn.addEventListener("click", function () {
-    if (currentSlideIndex > 0) {
-      currentSlideIndex--;
-      updateSlide();
+var slides = document.querySelectorAll(".appointment__container");
+var prevSlideBtn = document.getElementById("prevSlide");
+var nextSlideBtn = document.getElementById("nextSlide");
+var currentPage = document.getElementById("currentPage");
+var toggleButton = document.getElementById('header__toggle');
+var navigation = document.querySelector('.navigation');
+var totalSlides = slides.length;
+var currentSlideIndex = 0;
+function updateSlide() {
+  slides.forEach(function (slide, index) {
+    if (index === currentSlideIndex) {
+      slide.style.opacity = 1;
+    } else {
+      slide.style.opacity = 0;
     }
   });
-  nextSlideBtn.addEventListener("click", function () {
-    if (currentSlideIndex < totalSlides - 1) {
-      currentSlideIndex++;
-      updateSlide();
-    }
-  });
-  updateSlide();
+  currentPage.textContent = currentSlideIndex + 1;
+}
+toggleButton.addEventListener('click', function () {
+  // Переключаем класс navigation_visible
+  navigation.classList.toggle('navigation_visible');
 });
+prevSlideBtn.addEventListener("click", function () {
+  if (currentSlideIndex > 0) {
+    currentSlideIndex--;
+    updateSlide();
+  }
+});
+nextSlideBtn.addEventListener("click", function () {
+  if (currentSlideIndex < totalSlides - 1) {
+    currentSlideIndex++;
+    updateSlide();
+  }
+});
+updateSlide();
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
