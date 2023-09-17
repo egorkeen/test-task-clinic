@@ -123,18 +123,25 @@ document.addEventListener("DOMContentLoaded", function () {
   var prevSlideBtn = document.getElementById("prevSlide");
   var nextSlideBtn = document.getElementById("nextSlide");
   var currentPage = document.getElementById("currentPage");
+  var toggleButton = document.getElementById('header__toggle');
+  var navigation = document.querySelector('.navigation');
   var totalSlides = slides.length;
   var currentSlideIndex = 0;
   function updateSlide() {
     slides.forEach(function (slide, index) {
       if (index === currentSlideIndex) {
-        slide.style.display = "block";
+        slide.style.display = "flex";
+        slide.style.flexDirection = "column-reverse";
       } else {
         slide.style.display = "none";
       }
     });
     currentPage.textContent = currentSlideIndex + 1;
   }
+  toggleButton.addEventListener('click', function () {
+    // Переключаем класс navigation_visible
+    navigation.classList.toggle('navigation_visible');
+  });
   prevSlideBtn.addEventListener("click", function () {
     if (currentSlideIndex > 0) {
       currentSlideIndex--;
@@ -147,8 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
       updateSlide();
     }
   });
-
-  // Начнем с первого слайда
   updateSlide();
 });
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -176,7 +181,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59350" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55609" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

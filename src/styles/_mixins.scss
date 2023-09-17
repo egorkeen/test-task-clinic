@@ -14,6 +14,11 @@
   font-style: normal;
 }
 
+@mixin button-common-styles-mobile {
+  width: $button-width-mobile;
+  height: $button-height-mobile;
+}
+
 @mixin button-common-styles {
   padding: 0;
   border-radius: 50px;

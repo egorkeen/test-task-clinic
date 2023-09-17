@@ -10,7 +10,11 @@
   <!-- шапка -->
   <header class="header">
     <div class="header__container">
-
+      <!-- бургер-меню -->
+      <input id="header__toggle" type="checkbox">
+      <label class="menu-button-container header__navigation-container" for="header__toggle">
+        <div class="header__navigation-button"></div>
+      </label>
       <div class="header__location">
         <img class="header__logo" src="/header___logo.a501a524.svg" alt="Логотип компании">
         <img class="header__location-icon" src="/header__location-icon.5d85fa48.svg" alt="Расположение">
@@ -23,6 +27,7 @@
       <div class="header__contacts">
         <img class="header__whatsapp-icon" src="/header__whatsapp-icon.4f6c1cf9.svg" alt="Иконка WhatsApp">
         <span class="header__number">+7(863) 000 00 00</span>
+        <a href="https://yandex.ru/maps/-/CDUeR8-A" class="header__location-span">Ростов-на-Дону</a>
         <button class="header__contact-button">Записаться на прием</button>
       </div>
     </div>
@@ -37,6 +42,7 @@
         <li><a class="navigation__link" href="#">Цены</a></li>
         <li><a class="navigation__link" href="#">Контакты</a></li>
       </ul>
+      <button class="navigation__contact-button">Записаться на прием</button>
   </nav>
   
   <!-- секция с описанием -->
@@ -155,9 +161,9 @@
 
     <!-- контейнер с кнопками переключения между слайдами -->
     <div class="appointment__slider-buttons">
-      <button class="appointment__arrow-button appointment__arrow-button_left" id="prevSlide"></button>
+      <button class="appointment__arrow-button appointment__arrow-button_left" id="prevSlide">←</button>
       <span class="appointment__pages"><span id="currentPage">1</span><span class="appointment__total-pages">/4</span></span>
-      <button class="appointment__arrow-button appointment__arrow-button_right" id="nextSlide"></button>
+      <button class="appointment__arrow-button appointment__arrow-button_right" id="nextSlide">→</button>
     </div>
   </section>
 

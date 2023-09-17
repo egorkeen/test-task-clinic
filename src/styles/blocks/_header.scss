@@ -7,6 +7,7 @@
 
   .header__container {
     width: $block-width;
+    max-width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,6 +52,10 @@
     display: flex;
     align-items: center;
 
+    .header__location-span {
+      display: none;
+    }
+
     .header__whatsapp-icon {
       width: $whatsapp-icon-size;
       height: $whatsapp-icon-size;
@@ -69,8 +74,139 @@
       transition: .1s linear;
       &:hover {
         cursor: pointer;
-        opacity: $opacity;
+        background-color: $color-10;
       }
     }
+  }
+}
+
+@media screen and (max-width: $mobileWidth) {
+  .header {
+    z-index: 30;
+    background-color: $color-2;
+    position: fixed;
+    max-width: 100vw;
+    padding-bottom: 15px;
+
+    .header__location {
+
+      .header__logo {
+        width: $logo-width-mobile;
+        height: $logo-height-mobile;
+      }
+
+      .header__location-icon {
+        display: none;
+      }
+
+      .header__location-link {
+        display: none;
+      }
+    }
+
+    .header__contacts {
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .header__location-span {
+        display: block;
+        text-decoration: none;
+        color: $color-5;
+      }
+
+      .header__whatsapp-icon {
+        display: none;
+      }
+
+      .header__number {
+        font-weight: 700;
+        line-height: normal;
+        margin-right: 0;
+      }
+
+      .header__location-span {
+        width: 100%;
+        text-align: end;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .header__contact-button {
+        display: none;
+      }
+    }
+  }
+}
+
+// стили для бургер меню
+#header__toggle {
+  display: none;
+}
+
+#header__toggle:checked + .header__navigation-container .header__navigation-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+#header__toggle:checked + .header__navigation-container .header__navigation-button {
+  background: rgba(255, 255, 255, 0);
+}
+
+#header__toggle:checked + .header__navigation-container .header__navigation-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+.header__navigation-container {
+  display: none;
+  height: 100%;
+  width: 37px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .header__navigation-button,
+  .header__navigation-button::before,
+  .header__navigation-button::after {
+    display: block;
+    background-color: $color-1;
+    position: absolute;
+    height: 4px;
+    width: 37px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+  }
+
+  .header__navigation-button::before {
+    content: '';
+    margin-top: -9px;
+  }
+  
+  .header__navigation-button::after {
+    content: '';
+    margin-top: 9px;
+  }
+}
+
+@media (max-width:$mobileWidth) {
+  .header__navigation-container {
+    display: flex;
+  }
+
+  #header__toggle {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #header__toggle:checked {
+    border: 1px solid #333;
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 }

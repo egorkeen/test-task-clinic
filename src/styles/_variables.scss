@@ -1,24 +1,30 @@
-// общие стили
 $block-width: 1140px;
+$block-width-mobile: 340px;
+
 $opacity: .7;
 
-// logo
+$mobileWidth: 768px;
+
 $logo-width: 91px;
 $logo-height: 27px;
 
-// header
+$logo-width-mobile: 62px;
+$logo-height-mobile: 18px;
+
 $location-icon-size: 20px;
 $whatsapp-icon-size: 28px;
+
 $button-width: 196px;
 $button-height: 43px;
 
-// arrow
+$button-width-mobile: 137px;
+$button-height-mobile: 43px;
+
 $arrow-size: 34px;
 
-// socails
 $social-icon-size: 35px;
+$social-icon-size-mobile: 24px;
 
-// colors
 $color-1: #0DBC91;
 $color-2: #fff;
 $color-3: #1FA181;
@@ -28,3 +34,6 @@ $color-6: #868686;
 $color-7: #E2F0EF;
 $color-8: #C0C0C0;
 $color-9: #08664F;
+$color-10: #00D29F;
+$color-11: #E2F0EF;
+$color-12: #F6F6F6;

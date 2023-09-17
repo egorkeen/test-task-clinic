@@ -4,11 +4,13 @@
 .description {
   @include position-centered;
   background-color: $color-4;
+  padding-bottom: 53px;
 
   .description__content {
-    width: $block-width;
+    max-width: $block-width;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin: 0 auto;
   }
 
@@ -39,5 +41,38 @@
     height: 532px;
     overflow: hidden;
     object-fit: cover;
+  }
+}
+
+@media screen and (max-width: $mobileWidth) {
+  .description {
+    .description__content {
+      max-width: 100vw;
+      flex-direction: column-reverse;
+      align-items: center;
+  
+      .description__image {
+        width: 375px;
+        height: 288px;
+      }
+
+      .description__text-container {
+        margin-top: 35px;
+        margin-bottom: 0;
+        margin-right: 0;
+        width: 340px;
+
+        .description__title {
+          font-size: 26px;
+          max-width: 267px;  
+        }
+
+        .description__paragraph {
+          font-size: 14px;
+          max-width: 340px;
+          line-height: 20px;
+        }
+      }
+    }
   }
 }

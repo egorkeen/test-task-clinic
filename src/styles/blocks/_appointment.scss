@@ -4,8 +4,8 @@
 .appointment {
   @include position-centered;
   position: relative;
-  width: $block-width;
-  margin: 100px auto 100px;
+  max-width: $block-width;
+  margin: 100px auto 94px;
   flex-direction: column;
   overflow: hidden;
   
@@ -102,18 +102,20 @@
             cursor: pointer;
   
             &:hover {
-              opacity: $opacity;
+              background-color: $color-10;
             }
           }
   
           .appointment__button_color_white {
             background-color: $color-7;
+            color: $color-1;
             border: 2px solid $color-1;
             transition: .1s linear;
             cursor: pointer;
   
             &:hover {
-              opacity: $opacity;
+              background-color: $color-1;
+              color: $color-2;
             }
           }
         }
@@ -142,23 +144,20 @@
     gap: 36px;
 
     .appointment__arrow-button {
+      display: flex;
+    align-items: center;
+    justify-content: center;
       border: none;
       background-color: $color-2;
       width: $arrow-size;
-      height: $arrow-size;
+      height: 30px;
       cursor: pointer;
       transition: .1s linear;
+      font-size: 40px;
+      color: #E1E1E1;
       &:hover {
-        opacity: $opacity;
+        color: #0DBC91;
       }
-    }
-
-    .appointment__arrow-button_left {
-      background-image: url('/images/appointment__left-arrow.svg');
-    }
-
-    .appointment__arrow-button_right {
-      background-image: url('/images/appointment__right-arrow.svg');
     }
 
     .appointment__pages {
@@ -170,6 +169,92 @@
       .appointment__total-pages {
         color: $color-8;
       }
+    }
+  }
+}
+
+@media screen and (max-width: $mobileWidth) {
+  .appointment {
+    margin-top: 54px;
+    margin-bottom: 35px;
+    overflow: visible;
+
+    .appointment__slider {
+      height: 536px;
+
+      .appointment__container {
+        height: 536px;
+        width: $block-width-mobile;
+
+        .appointment__foreground-image {
+          display: none;
+        }
+
+        .appointment__background-image {
+          width: $block-width-mobile;
+          height: 169px;
+          position: relative;
+        }
+
+        .appointment__content {
+          width: $block-width-mobile;
+          background-color: $color-11;
+          z-index: 20;
+          position:static;
+          padding-top: 22px;
+          padding-bottom: 42px;
+
+          .appointment__title {
+            max-width: fit-content;
+            font-size: 28px;
+            margin-left: 23px;
+          }
+
+          .appointment__small-title {
+            max-width: fit-content;
+            font-size: 14px;
+            margin-left: 23px;
+          }
+
+          .appointment__list {
+            margin-left: 29px;
+            max-width: 271px;
+            .appointment__list-element {
+              .appointment__list-span {
+                font-size: 14px;
+                line-height: 145%;
+              }
+            }
+          }
+
+          .appointment__price {
+            margin-left: 23px;
+            font-size: 18px;
+            gap: 10px;
+            margin-top: 17px;
+
+            .appointment__price_crossed {
+              font-size: 18px;
+            }
+          }
+
+          .appointment__button-container {
+            margin-left: 23px;
+            gap: 6px;
+            .appointment__button_color_green {
+              @include button-common-styles-mobile;
+            }
+
+            .appointment__button_color_white {
+              @include button-common-styles-mobile;
+            }
+          }
+        }
+      }
+    }
+
+    .appointment__slider-buttons {
+      margin-top: 16px;
     }
   }
 }
