@@ -1,0 +1,126 @@
+@import '../variables';
+@import '../mixins';
+
+.slide {
+  width: $slider-width;
+  height: $slider-height;
+  position: relative;
+
+  .slide__foreground {
+    height: 0px;
+    width: 495px;
+    border-bottom: 464px solid rgb(226, 240, 239);
+    border-right: 123px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 20;
+
+    .slide__content {
+      width: 406px;
+      margin: 51px 62px;
+
+      .slide__title {
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+        color: $color-5;
+      }
+
+      .slide__small-title {
+        color: $color-5;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+
+      .slide__list {
+        margin-top: 16px;
+        display: flex;
+        gap: 9px;
+        flex-direction: column;
+
+        .slide__list-item {
+          position: relative;
+          margin-left: 14px;
+          @include text-common-styles;
+          line-height: normal;
+          color: $color-5;
+
+          &::before {
+            content: "";
+            background-image: image-set(url("images/slide__green-dot.svg"));
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 7px;
+            height: 7px;
+            position: absolute;
+            left: -17px;
+            top: 7px;
+          }
+        }
+      }
+
+      .slide__price {
+        margin-top: 32px;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .slide__price_crossed {
+          text-decoration: line-through;
+          font-size: 16px;
+          line-height: 24px;
+          color: $color-6;
+        }
+      }
+
+      .slide__button-container {
+        margin-top: 26px;
+        display: flex;
+        gap: 12px;
+
+        .slide__button {
+          @include button-common-styles;
+          transition: .1s linear;
+        }
+
+        .slide__button_sign-up {
+          background-color: $color-1;
+          color: $color-2;
+          &:hover {
+            background-color: $color-10;
+            cursor: pointer;
+          }
+        }
+
+        .slide__button_info {
+          background-color: $color-2;
+          border: 1px solid $color-1;
+          color: $color-1;
+          &:hover {
+            cursor: pointer;
+            background-color: $color-1;
+            color: $color-2;
+          }
+        }
+      }
+    }
+  }
+
+  .slide__background-image {
+    width: 692px;
+    height: $slider-height;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+  }
+}

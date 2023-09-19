@@ -351,197 +351,156 @@ body {
         max-width: 340px;
         line-height: 20px; } }
 
-.appointment {
+.services {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  max-width: 1140px;
-  margin: 100px auto 94px;
   flex-direction: column;
-  overflow: hidden; }
-  .appointment .appointment__slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 440px; }
-    .appointment .appointment__slider .appointment__container {
-      width: 100%;
-      height: 100%; }
-      .appointment .appointment__slider .appointment__container .appointment__content {
-        position: absolute;
-        top: 53px;
-        left: 62px;
-        z-index: 15; }
-        .appointment .appointment__slider .appointment__container .appointment__content .appointment__title {
-          font-size: 38px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: normal;
-          text-transform: uppercase;
-          color: #364844; }
-        .appointment .appointment__slider .appointment__container .appointment__content .appointment__small-title {
-          font-size: 22px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: normal;
-          color: #364844; }
-        .appointment .appointment__slider .appointment__container .appointment__content .appointment__list {
-          margin-top: 16px;
-          color: #1FA181;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          gap: 9px; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__list .appointment__list-element {
-            list-style-type: none;
-            text-indent: -5px; }
-            .appointment .appointment__slider .appointment__container .appointment__content .appointment__list .appointment__list-element::before {
-              display: inline-block;
-              color: #1FA181;
-              content: "•";
-              margin-left: 3px;
-              padding-right: 10px; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__list .appointment__list-span {
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            color: #364844; }
-        .appointment .appointment__slider .appointment__container .appointment__content .appointment__price {
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-          color: #364844;
-          display: flex;
-          margin-top: 33px;
-          gap: 16px; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__price .appointment__price_crossed {
-            color: #868686;
-            text-decoration: line-through; }
-        .appointment .appointment__slider .appointment__container .appointment__content .appointment__button-container {
-          margin-top: 27px;
-          display: flex;
-          gap: 14px; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__button-container .appointment__button {
-            padding: 0;
-            border-radius: 50px;
-            width: 196px;
-            height: 43px;
-            border: none;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 21px;
-            letter-spacing: .5px; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__button-container .appointment__button_color_green {
-            background-color: #0DBC91;
-            color: #fff;
-            transition: .1s linear;
-            cursor: pointer; }
-            .appointment .appointment__slider .appointment__container .appointment__content .appointment__button-container .appointment__button_color_green:hover {
-              background-color: #00D29F; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__button-container .appointment__button_color_white {
-            background-color: #E2F0EF;
-            color: #0DBC91;
-            border: 2px solid #0DBC91;
-            transition: .1s linear;
-            cursor: pointer; }
-            .appointment .appointment__slider .appointment__container .appointment__content .appointment__button-container .appointment__button_color_white:hover {
-              background-color: #0DBC91;
-              color: #fff; }
-      .appointment .appointment__slider .appointment__container .appointment__foreground-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 10; }
-      .appointment .appointment__slider .appointment__container .appointment__background-image {
-        z-index: 5;
-        position: absolute;
-        top: 0;
-        right: 0; }
-  .appointment .appointment__slider-buttons {
-    margin-top: 34px;
-    display: flex;
-    align-items: center;
-    gap: 36px; }
-    .appointment .appointment__slider-buttons .appointment__arrow-button {
+  align-items: center;
+  gap: 15px;
+  margin: 50px auto 79px; }
+  .services .services__slider {
+    width: 1140px;
+    height: 440px;
+    overflow: hidden;
+    border-radius: 4px; }
+    .services .services__slider .services__slider-line {
+      width: 4560px;
+      height: 440px;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative;
+      left: 0;
+      transition: all ease 1s; }
+  .services .services__button-container {
+    display: flex;
+    gap: 21px; }
+    .services .services__button-container .services__button {
       border: none;
-      background-color: #fff;
-      width: 34px;
-      height: 30px;
+      width: 65px;
+      height: 65px;
+      background-color: white;
       cursor: pointer;
+      color: #E1E1E1;
       transition: .1s linear;
       font-size: 40px;
-      color: #E1E1E1; }
-      .appointment .appointment__slider-buttons .appointment__arrow-button:hover {
+      margin: 0;
+      padding: 0; }
+      .services .services__button-container .services__button:hover {
         color: #0DBC91; }
-    .appointment .appointment__slider-buttons .appointment__pages {
+    .services .services__button-container .services__pages-container {
       font-size: 18px;
-      font-weight: 400;
       font-style: normal;
-      line-height: normal; }
-      .appointment .appointment__slider-buttons .appointment__pages .appointment__total-pages {
+      font-weight: 400;
+      line-height: normal;
+      display: flex;
+      align-items: center; }
+      .services .services__button-container .services__pages-container .services__pages {
+        color: #364844; }
+      .services .services__button-container .services__pages-container .services__total-pages {
         color: #C0C0C0; }
 
-@media screen and (max-width: 768px) {
-  .appointment {
-    margin-top: 54px;
-    margin-bottom: 35px;
-    overflow: visible; }
-    .appointment .appointment__slider {
-      height: 536px; }
-      .appointment .appointment__slider .appointment__container {
-        height: 536px;
-        width: 340px; }
-        .appointment .appointment__slider .appointment__container .appointment__foreground-image {
-          display: none; }
-        .appointment .appointment__slider .appointment__container .appointment__background-image {
-          width: 340px;
-          height: 169px;
-          position: relative; }
-        .appointment .appointment__slider .appointment__container .appointment__content {
-          width: 340px;
-          background-color: #E2F0EF;
-          z-index: 20;
-          position: static;
-          padding-top: 22px;
-          padding-bottom: 42px; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__title {
-            max-width: fit-content;
-            font-size: 28px;
-            margin-left: 23px; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__small-title {
-            max-width: fit-content;
-            font-size: 14px;
-            margin-left: 23px; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__list {
-            margin-left: 29px;
-            max-width: 271px; }
-            .appointment .appointment__slider .appointment__container .appointment__content .appointment__list .appointment__list-element .appointment__list-span {
-              font-size: 14px;
-              line-height: 145%; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__price {
-            margin-left: 23px;
-            font-size: 18px;
-            gap: 10px;
-            margin-top: 17px; }
-            .appointment .appointment__slider .appointment__container .appointment__content .appointment__price .appointment__price_crossed {
-              font-size: 18px; }
-          .appointment .appointment__slider .appointment__container .appointment__content .appointment__button-container {
-            margin-left: 23px;
-            gap: 6px; }
-            .appointment .appointment__slider .appointment__container .appointment__content .appointment__button-container .appointment__button_color_green {
-              width: 137px;
-              height: 43px; }
-            .appointment .appointment__slider .appointment__container .appointment__content .appointment__button-container .appointment__button_color_white {
-              width: 137px;
-              height: 43px; }
-    .appointment .appointment__slider-buttons {
-      margin-top: 16px; } }
+.slide {
+  width: 1140px;
+  height: 440px;
+  position: relative; }
+  .slide .slide__foreground {
+    height: 0px;
+    width: 495px;
+    border-bottom: 464px solid #e2f0ef;
+    border-right: 123px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 20; }
+    .slide .slide__foreground .slide__content {
+      width: 406px;
+      margin: 51px 62px; }
+      .slide .slide__foreground .slide__content .slide__title {
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+        color: #364844; }
+      .slide .slide__foreground .slide__content .slide__small-title {
+        color: #364844;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal; }
+      .slide .slide__foreground .slide__content .slide__list {
+        margin-top: 16px;
+        display: flex;
+        gap: 9px;
+        flex-direction: column; }
+        .slide .slide__foreground .slide__content .slide__list .slide__list-item {
+          position: relative;
+          margin-left: 14px;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          font-style: normal;
+          line-height: normal;
+          color: #364844; }
+          .slide .slide__foreground .slide__content .slide__list .slide__list-item::before {
+            content: "";
+            background-image: image-set(url("/slide__green-dot.43d05e43.svg"));
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 7px;
+            height: 7px;
+            position: absolute;
+            left: -17px;
+            top: 7px; }
+      .slide .slide__foreground .slide__content .slide__price {
+        margin-top: 32px;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        gap: 16px; }
+        .slide .slide__foreground .slide__content .slide__price .slide__price_crossed {
+          text-decoration: line-through;
+          font-size: 16px;
+          line-height: 24px;
+          color: #868686; }
+      .slide .slide__foreground .slide__content .slide__button-container {
+        margin-top: 26px;
+        display: flex;
+        gap: 12px; }
+        .slide .slide__foreground .slide__content .slide__button-container .slide__button {
+          padding: 0;
+          border-radius: 50px;
+          width: 196px;
+          height: 43px;
+          border: none;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 21px;
+          letter-spacing: .5px;
+          transition: .1s linear; }
+        .slide .slide__foreground .slide__content .slide__button-container .slide__button_sign-up {
+          background-color: #0DBC91;
+          color: #fff; }
+          .slide .slide__foreground .slide__content .slide__button-container .slide__button_sign-up:hover {
+            background-color: #00D29F;
+            cursor: pointer; }
+        .slide .slide__foreground .slide__content .slide__button-container .slide__button_info {
+          background-color: #fff;
+          border: 1px solid #0DBC91;
+          color: #0DBC91; }
+          .slide .slide__foreground .slide__content .slide__button-container .slide__button_info:hover {
+            cursor: pointer;
+            background-color: #0DBC91;
+            color: #fff; }
+  .slide .slide__background-image {
+    width: 692px;
+    height: 440px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10; }
 
 .footer {
   display: flex;

@@ -118,41 +118,44 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"index.js":[function(require,module,exports) {
-var slides = document.querySelectorAll(".appointment__container");
-var prevSlideBtn = document.getElementById("prevSlide");
-var nextSlideBtn = document.getElementById("nextSlide");
-var currentPage = document.getElementById("currentPage");
-var toggleButton = document.getElementById('header__toggle');
 var navigation = document.querySelector('.navigation');
-var totalSlides = slides.length;
-var currentSlideIndex = 0;
-function updateSlide() {
-  slides.forEach(function (slide, index) {
-    if (index === currentSlideIndex) {
-      slide.style.display = "block";
-    } else {
-      slide.style.display = "none";
-    }
-  });
-  currentPage.textContent = currentSlideIndex + 1;
-}
+var toggleButton = document.getElementById('header__toggle');
+var sliderLine = document.querySelector('.services__slider-line');
+var slideWidth = document.querySelector('.slide').offsetWidth;
+var nextButton = document.querySelector('.services__button_next');
+var prevButton = document.querySelector('.services__button_prev');
+var pagesElement = document.querySelector('.services__pages');
+var offset = 0;
+var currentPage = 1;
 toggleButton.addEventListener('click', function () {
-  // Переключаем класс navigation_visible
   navigation.classList.toggle('navigation_visible');
 });
-prevSlideBtn.addEventListener("click", function () {
-  if (currentSlideIndex > 0) {
-    currentSlideIndex--;
-    updateSlide();
+function updatePageIndicator() {
+  pagesElement.textContent = currentPage;
+}
+nextButton.addEventListener('click', function () {
+  offset = offset + slideWidth;
+  if (offset > slideWidth * 3) {
+    offset = 0;
+    currentPage = 1;
+  } else {
+    currentPage++;
   }
+  sliderLine.style.left = -offset + 'px';
+  updatePageIndicator();
 });
-nextSlideBtn.addEventListener("click", function () {
-  if (currentSlideIndex < totalSlides - 1) {
-    currentSlideIndex++;
-    updateSlide();
+prevButton.addEventListener('click', function () {
+  offset = offset - slideWidth;
+  if (offset < 0) {
+    offset = slideWidth * 3;
+    currentPage = 4;
+  } else {
+    currentPage--;
   }
+  sliderLine.style.left = -offset + 'px';
+  updatePageIndicator();
 });
-updateSlide();
+updatePageIndicator();
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -178,7 +181,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57948" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58462" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

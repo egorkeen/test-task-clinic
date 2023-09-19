@@ -19,6 +19,13 @@
   height: $button-height-mobile;
 }
 
+@mixin arrow-button-styles {
+  border: none;
+  width: 65px;
+  height: 65px;
+  background-color: white;
+}
+
 @mixin button-common-styles {
   padding: 0;
   border-radius: 50px;
@@ -38,4 +45,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
+}
+
+@mixin services-pages-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

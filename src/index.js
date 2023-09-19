@@ -1,41 +1,43 @@
-const slides = document.querySelectorAll(".appointment__container");
-const prevSlideBtn = document.getElementById("prevSlide");
-const nextSlideBtn = document.getElementById("nextSlide");
-const currentPage = document.getElementById("currentPage");
-const toggleButton = document.getElementById('header__toggle');
 const navigation = document.querySelector('.navigation');
-const totalSlides = slides.length;
-let currentSlideIndex = 0;
-
-function updateSlide() {
-  slides.forEach((slide, index) => {
-    if (index === currentSlideIndex) {
-      slide.style.display = "block";
-    } else {
-      slide.style.display = "none";
-    }
-  });
-
-  currentPage.textContent = currentSlideIndex + 1;
-}
+const toggleButton = document.getElementById('header__toggle');
+const sliderLine = document.querySelector('.services__slider-line');
+const slideWidth = document.querySelector('.slide').offsetWidth;
+const nextButton = document.querySelector('.services__button_next')
+const prevButton = document.querySelector('.services__button_prev');
+const pagesElement = document.querySelector('.services__pages');
+let offset = 0;
+let currentPage = 1;
 
 toggleButton.addEventListener('click', () => {
-  // Переключаем класс navigation_visible
   navigation.classList.toggle('navigation_visible');
 });
 
-prevSlideBtn.addEventListener("click", () => {
-  if (currentSlideIndex > 0) {
-    currentSlideIndex--;
-    updateSlide();
+function updatePageIndicator() {
+  pagesElement.textContent = currentPage;
+}
+
+nextButton.addEventListener('click', () => {
+  offset = offset + slideWidth;
+  if (offset > slideWidth * 3) {
+    offset = 0;
+    currentPage = 1;
+  } else {
+    currentPage++;
   }
+  sliderLine.style.left = -offset + 'px';
+  updatePageIndicator();
 });
 
-nextSlideBtn.addEventListener("click", () => {
-  if (currentSlideIndex < totalSlides - 1) {
-    currentSlideIndex++;
-    updateSlide();
+prevButton.addEventListener('click', () => {
+  offset = offset - slideWidth;
+  if (offset < 0) {
+    offset = slideWidth * 3;
+    currentPage = 4;
+  } else {
+    currentPage--;
   }
-});
+  sliderLine.style.left = -offset + 'px';
+  updatePageIndicator();
+})
 
-updateSlide();
+updatePageIndicator();

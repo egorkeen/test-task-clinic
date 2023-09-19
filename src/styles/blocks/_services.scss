@@ -1,0 +1,58 @@
+@import '../variables';
+@import '../mixins';
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 50px auto 79px;
+
+  .services__slider {
+    width: $slider-width;
+    height: $slider-height;
+    overflow: hidden;
+    border-radius: 4px;
+
+    .services__slider-line {
+      width: $slider-width * 4;
+      height: $slider-height;
+      display: flex;
+      position: relative;
+      left: 0;
+      transition: all ease 1s;
+    }
+  }
+
+  .services__button-container {
+    display: flex;
+    gap: 21px;
+
+    .services__button {
+      @include arrow-button-styles;
+      cursor: pointer;
+      color: $color-13;
+      transition: .1s linear;
+      font-size: 40px;
+      margin: 0;
+      padding: 0;
+      &:hover {
+        color: $color-1;
+      }
+    }
+
+    .services__pages-container {
+      @include services-pages-text;
+      display: flex;
+      align-items: center;
+
+      .services__pages {
+        color: $color-5;
+      }
+  
+      .services__total-pages {
+        color: $color-8;
+      }
+    }
+  }
+}
