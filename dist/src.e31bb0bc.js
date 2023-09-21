@@ -117,46 +117,88 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
+})({"scripts/utils/constants.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.toggleButton = exports.textInput = exports.sliderLine = exports.slideWidth = exports.showPopupButton = exports.prevButton = exports.popup = exports.pagesElement = exports.nextButton = exports.navigation = exports.modalForm = exports.closePopupButton = void 0;
 var navigation = document.querySelector('.navigation');
+exports.navigation = navigation;
 var toggleButton = document.getElementById('header__toggle');
+exports.toggleButton = toggleButton;
 var sliderLine = document.querySelector('.services__slider-line');
+exports.sliderLine = sliderLine;
 var slideWidth = document.querySelector('.slide').offsetWidth;
+exports.slideWidth = slideWidth;
 var nextButton = document.querySelector('.services__button_next');
+exports.nextButton = nextButton;
 var prevButton = document.querySelector('.services__button_prev');
+exports.prevButton = prevButton;
 var pagesElement = document.querySelector('.services__pages');
+exports.pagesElement = pagesElement;
+var showPopupButton = document.getElementById('show-popup');
+exports.showPopupButton = showPopupButton;
+var popup = document.getElementById('popup');
+exports.popup = popup;
+var closePopupButton = document.getElementById('close-popup');
+exports.closePopupButton = closePopupButton;
+var modalForm = document.forms['modal-form'];
+exports.modalForm = modalForm;
+var textInput = document.getElementById('message');
+exports.textInput = textInput;
+},{}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _constants = require("./scripts/utils/constants");
 var offset = 0;
 var currentPage = 1;
-toggleButton.addEventListener('click', function () {
-  navigation.classList.toggle('navigation_visible');
-});
 function updatePageIndicator() {
-  pagesElement.textContent = currentPage;
+  _constants.pagesElement.textContent = currentPage;
 }
-nextButton.addEventListener('click', function () {
-  offset = offset + slideWidth;
-  if (offset > slideWidth * 3) {
+_constants.showPopupButton.addEventListener('click', function () {
+  // очищаем поле с сообщением перед открытием
+  _constants.textInput.value = '';
+  _constants.popup.classList.add('popup_active');
+});
+_constants.closePopupButton.addEventListener('click', function () {
+  _constants.popup.classList.remove('popup_active');
+});
+
+// здесь можно описать запрос к api с отправкой сообщения
+_constants.modalForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  alert("\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435: ".concat(_constants.textInput.value, "\n\u041F\u0438\u0441\u044C\u043C\u043E \u043E\u0442\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043E \u043D\u0430 rbru-metrika@yandex.ru"));
+  _constants.popup.classList.remove('popup_active');
+});
+_constants.nextButton.addEventListener('click', function () {
+  offset = offset + _constants.slideWidth;
+  if (offset > _constants.slideWidth * 3) {
     offset = 0;
     currentPage = 1;
   } else {
     currentPage++;
   }
-  sliderLine.style.left = -offset + 'px';
+  _constants.sliderLine.style.left = -offset + 'px';
   updatePageIndicator();
 });
-prevButton.addEventListener('click', function () {
-  offset = offset - slideWidth;
+_constants.prevButton.addEventListener('click', function () {
+  offset = offset - _constants.slideWidth;
   if (offset < 0) {
-    offset = slideWidth * 3;
+    offset = _constants.slideWidth * 3;
     currentPage = 4;
   } else {
     currentPage--;
   }
-  sliderLine.style.left = -offset + 'px';
+  _constants.sliderLine.style.left = -offset + 'px';
   updatePageIndicator();
 });
+_constants.toggleButton.addEventListener('click', function () {
+  _constants.navigation.classList.toggle('navigation_visible');
+});
 updatePageIndicator();
-},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./scripts/utils/constants":"scripts/utils/constants.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -181,7 +223,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58462" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52680" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

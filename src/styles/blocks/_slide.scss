@@ -2,7 +2,7 @@
 @import '../mixins';
 
 .slide {
-  width: $slider-width;
+  width: $block-width;
   height: $slider-height;
   position: relative;
 
@@ -122,5 +122,72 @@
     right: 0;
     top: 0;
     z-index: 10;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .slide {
+    width: $block-width-mobile;
+    height: $slider-height-mobile;
+    display: flex;
+    flex-direction: column-reverse;
+
+    .slide__foreground {
+      position: relative;
+      width: $block-width-mobile;
+      height: 367px;
+      border-bottom: none;
+      border-right: none;
+      background-color: $color-11;
+
+      .slide__content {
+        width: 287px;
+        margin: 22px 0 0 23px;
+
+        .slide__title {
+          font-size: 26px;
+        }
+
+        .slide__small-title {
+          font-size: 14px;
+          margin-top: 4px;
+        }
+
+        .slide__list {
+          gap: 7px;
+          margin-top: 14px;
+
+          .slide__list-item {
+            font-size: 14px;
+            line-height: 20.3px;
+          }
+        }
+
+        .slide__price {
+          font-size: 18px;
+          gap: 10px;
+          margin-top: 17px;
+
+          .slide__price_crossed {
+            font-size: 14px;
+          }
+        }
+
+        .slide__button-container {
+          gap: 4px;
+
+          .slide__button {
+            @include button-common-styles-mobile;
+          }
+        }
+      }
+    }
+
+    .slide__background-image {
+      position: relative;
+      width: $block-width-mobile;
+      height: 169px;
+      object-fit: cover;
+    }
   }
 }

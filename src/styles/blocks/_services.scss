@@ -9,13 +9,13 @@
   margin: 50px auto 79px;
 
   .services__slider {
-    width: $slider-width;
+    width: $block-width;
     height: $slider-height;
     overflow: hidden;
     border-radius: 4px;
 
     .services__slider-line {
-      width: $slider-width * 4;
+      width: $block-width * 4;
       height: $slider-height;
       display: flex;
       position: relative;
@@ -52,6 +52,23 @@
   
       .services__total-pages {
         color: $color-8;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .services {
+    margin-bottom: 21px;
+    gap: 5px;
+
+    .services__slider {
+      width: $block-width-mobile;
+      height: $slider-height-mobile;
+
+      .services__slider-line {
+        width: $block-width-mobile * 4;
+        height: $slider-height-mobile;
       }
     }
   }

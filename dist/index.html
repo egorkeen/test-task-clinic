@@ -189,6 +189,22 @@
     </div>
   </footer>
 
+  <!-- всплывающее окно -->
+  <button class="popup__button" id="show-popup">
+    <img src="/popup__message-icon.605492d6.svg" alt="Иконка сообщения" class="popup__message-icon">
+  </button>
+  <div id="popup" class="popup">
+      <div class="popup__content">
+          <form class="form" name="modal-form">
+            <span class="form__close-button" id="close-popup">&times;</span>
+            <h2 class="form__title">Отправить письмо</h2>
+            <label class="form__input-name" for="message">Сообщение:</label>
+            <textarea class="form__input-text" placeholder="Введите сообщение" id="message" name="message" rows="4" required=""></textarea>
+            <button class="form__submit-button" type="submit">Отправить</button>
+          </form>
+      </div>
+  </div>
+
   <!-- скрипт -->
   <script src="/src.e31bb0bc.js"></script>
 </body>
