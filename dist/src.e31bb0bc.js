@@ -123,7 +123,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.toggleButton = exports.textInput = exports.sliderLine = exports.slideWidth = exports.showPopupButton = exports.prevButton = exports.popup = exports.pagesElement = exports.nextButton = exports.navigation = exports.modalForm = exports.closePopupButton = void 0;
+exports.toggleButton = exports.textInput = exports.sliderLine = exports.slideWidth = exports.showPopupButton = exports.prevButton = exports.popup = exports.pagesElement = exports.nextButton = exports.navigation = exports.modalForm = exports.emailInput = exports.closePopupButton = void 0;
 var navigation = document.querySelector('.navigation');
 exports.navigation = navigation;
 var toggleButton = document.getElementById('header__toggle');
@@ -148,10 +148,68 @@ var modalForm = document.forms['modal-form'];
 exports.modalForm = modalForm;
 var textInput = document.getElementById('message');
 exports.textInput = textInput;
+var emailInput = document.getElementById('email');
+exports.emailInput = emailInput;
+},{}],"scripts/utils/Api.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var Api = /*#__PURE__*/function () {
+  function Api(url, headers) {
+    _classCallCheck(this, Api);
+    this._url = url;
+    this._headers = headers;
+  }
+
+  // проверить статус запроса
+  _createClass(Api, [{
+    key: "_checkStatus",
+    value: function _checkStatus(res) {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject("".concat(res.status, " ").concat(res.statusText));
+      }
+      ;
+    }
+  }, {
+    key: "sendMessage",
+    value:
+    // пример написания запроса к серверу
+    function sendMessage(userEmail, message) {
+      return fetch(this._url + '/messages', {
+        method: 'POST',
+        headers: this._headers,
+        body: JSON.stringify({
+          userEmail: userEmail,
+          message: message
+        })
+      }).then(this._checkStatus);
+    }
+  }]);
+  return Api;
+}();
+;
+
+// здесь мы создаем api с адресом сервера
+var api = new Api('https://your-backend.ru');
+var _default = api;
+exports.default = _default;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _constants = require("./scripts/utils/constants");
+var _Api = _interopRequireDefault(require("./scripts/utils/Api"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var offset = 0;
 var currentPage = 1;
 function updatePageIndicator() {
@@ -197,8 +255,16 @@ _constants.closePopupButton.addEventListener('click', function () {
 // здесь можно описать запрос к api с отправкой сообщения
 _constants.modalForm.addEventListener('submit', function (e) {
   e.preventDefault();
-  alert("\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435: ".concat(_constants.textInput.value, "\n\u041F\u0438\u0441\u044C\u043C\u043E \u043E\u0442\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043E \u043D\u0430 rbru-metrika@yandex.ru"));
-  _constants.popup.classList.remove('popup_active');
+  var userEmail = _constants.emailInput.value;
+  var message = _constants.textInput.value;
+  // делаем запрос к серверу
+  _Api.default.sendMessage(userEmail, message).then(function () {
+    // в случае успеха закрываем попап
+    _constants.popup.classList.remove('popup_active');
+  }).catch(function (err) {
+    // отлавливаем ошибку
+    console.log(err);
+  });
 });
 
 // переключаем слайд
@@ -228,7 +294,7 @@ _constants.toggleButton.addEventListener('click', function () {
   _constants.navigation.classList.toggle('navigation_visible');
 });
 updatePageIndicator();
-},{"./scripts/utils/constants":"scripts/utils/constants.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./scripts/utils/constants":"scripts/utils/constants.js","./scripts/utils/Api":"scripts/utils/Api.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -253,7 +319,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53216" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53392" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

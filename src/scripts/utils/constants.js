@@ -10,6 +10,7 @@ const popup = document.getElementById('popup');
 const closePopupButton = document.getElementById('close-popup');
 const modalForm = document.forms['modal-form'];
 const textInput = document.getElementById('message');
+const emailInput = document.getElementById('email');
 
 export {
   navigation,
@@ -23,5 +24,6 @@ export {
   popup,
   closePopupButton,
   modalForm,
-  textInput
+  textInput,
+  emailInput
 };

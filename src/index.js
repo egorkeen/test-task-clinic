@@ -10,8 +10,11 @@ import {
   popup,
   closePopupButton,
   modalForm,
-  textInput
+  textInput,
+  emailInput
 } from './scripts/utils/constants';
+
+import api from './scripts/utils/Api';
 
 let offset = 0;
 let currentPage = 1;
@@ -56,8 +59,18 @@ closePopupButton.addEventListener('click', () => {
 // здесь можно описать запрос к api с отправкой сообщения
 modalForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert(`Сообщение: ${textInput.value}\nПисьмо отправлено на rbru-metrika@yandex.ru`);
-    popup.classList.remove('popup_active');
+    const userEmail = emailInput.value;
+    const message = textInput.value;
+    // делаем запрос к серверу
+    api.sendMessage(userEmail, message)
+    .then(() => {
+      // в случае успеха закрываем попап
+      popup.classList.remove('popup_active');
+    })
+    .catch((err) => {
+      // отлавливаем ошибку
+      console.log(err);
+    });
 });
 
 // переключаем слайд
