@@ -157,13 +157,41 @@ var currentPage = 1;
 function updatePageIndicator() {
   _constants.pagesElement.textContent = currentPage;
 }
+
+// закрытие попапа
+function closePopup() {
+  _constants.popup.classList.remove('popup_active');
+}
+
+// закрытие попапа по кнопке esc
+function handleEscClose(event) {
+  if (event.key === 'Escape') {
+    closePopup();
+  }
+  ;
+}
+;
+
+// закрытие попапа по клику вне формы
+_constants.popup.addEventListener('mousedown', function (event) {
+  if (event.target === _constants.popup) {
+    closePopup();
+  }
+  ;
+});
+
+// добавляем слушатель к кнопке открытия модальной формы
 _constants.showPopupButton.addEventListener('click', function () {
   // очищаем поле с сообщением перед открытием
+  document.addEventListener('keydown', handleEscClose);
   _constants.textInput.value = '';
   _constants.popup.classList.add('popup_active');
 });
+
+// следим за закрытием попапа
 _constants.closePopupButton.addEventListener('click', function () {
-  _constants.popup.classList.remove('popup_active');
+  document.removeEventListener('keydown', handleEscClose);
+  closePopup();
 });
 
 // здесь можно описать запрос к api с отправкой сообщения
@@ -172,6 +200,8 @@ _constants.modalForm.addEventListener('submit', function (e) {
   alert("\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435: ".concat(_constants.textInput.value, "\n\u041F\u0438\u0441\u044C\u043C\u043E \u043E\u0442\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043E \u043D\u0430 rbru-metrika@yandex.ru"));
   _constants.popup.classList.remove('popup_active');
 });
+
+// переключаем слайд
 _constants.nextButton.addEventListener('click', function () {
   offset = offset + _constants.slideWidth;
   if (offset > _constants.slideWidth * 3) {
@@ -223,7 +253,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52680" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53216" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
